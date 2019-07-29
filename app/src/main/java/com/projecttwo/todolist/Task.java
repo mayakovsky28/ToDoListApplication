@@ -6,6 +6,4 @@ class Task {
     String taskName;
     String employeeName;
     LocalDate deadline;
-
-
 }

@@ -11,14 +11,22 @@ class TodoList {
         this.tasks = new ArrayList<Task>();
     }
 
-    void addTask(String taskName, String employeeName,) {
-        this.tasks.add(taskName);
+    void createTask(String taskName, String employeeName, java.time.LocalDate deadline) {
+        this.tasks.add(taskName, employeeName, deadline);
     }
 
-    public void display() {
-        System.out.println("Here is our Todo List for " + topic);
+    void display() {
+        System.out.println("Here is our To Do List for " + topic);
         for (int i = 0; i < this.tasks.size(); i++) {
             System.out.println("Task " + (i + 1) + " is " + this.tasks.get(i));
+        }
+    }
+
+    void assignTask(String taskName, String employeeName) {
+        for (int i = 0; i < this.tasks.size(); i++) {
+    if (taskName.equals(Task(i))) {
+        Task(i).employeeName = employeeName;
+    }
         }
     }
 
