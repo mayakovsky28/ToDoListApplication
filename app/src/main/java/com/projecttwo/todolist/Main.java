@@ -5,14 +5,7 @@ public class Main {
 
         TodoList myTodoList = new TodoList("My morning routine");
 
-        myTodoList.addTask("Wake up.");
-        myTodoList.addTask("Knock knock.");
-        myTodoList.addTask("Follow the white rabbit.");
-        myTodoList.addTask("Knock knock.");
-        myTodoList.display();
-        myTodoList.removeTask(2);
-        myTodoList.display();
-        myTodoList.rename(1, "Neo.");
+        myTodoList.createTask("Wake up", "Lewis", "01/08/2019");
         myTodoList.display();
     }
 }
