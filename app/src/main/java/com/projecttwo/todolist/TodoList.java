@@ -9,10 +9,16 @@ class TodoList {
     TodoList(String topic) {
         this.topic = topic;
         this.tasks = new ArrayList<>();
-
-        Task taskOne = new Task("Wake up", "Lewis", "01/08/2019");
-        TodoList.add(taskOne);
     }
+
+    TodoList myTodoList = new TodoList("My morning routine");
+
+
+    Task taskOne = new Task;
+        taskOne.taskName = "Wake up";
+        taskOne.employeeName = "Lewis";
+        taskOne.deadLine = "01/08/2019";
+        myTodoList.tasks.add(taskOne);
 
     void display() {
         System.out.println("Here is our To Do List for " + topic);
