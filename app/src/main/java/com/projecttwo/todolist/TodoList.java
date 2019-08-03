@@ -2,7 +2,7 @@ package com.projecttwo.todolist;
 
 import java.util.ArrayList;
 
-class TodoList {
+class TodoList<Task> {
     private String topic;
     private ArrayList<Task> tasks;
 
@@ -14,7 +14,7 @@ class TodoList {
     TodoList myTodoList = new TodoList("My morning routine");
 
 
-    Task taskOne = new Task;
+    Task taskOne = new Task();
         taskOne.taskName = "Wake up";
         taskOne.employeeName = "Lewis";
         taskOne.deadLine = "01/08/2019";
