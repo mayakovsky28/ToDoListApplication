@@ -14,5 +14,31 @@ class Task {
     public String getTaskName() {
         return this.taskName;
     }
+    public void setTaskName(String newTaskName) {
+        this.taskName = newTaskName;
+    }
 
+    public String getEmployeeName() {
+        return employeeName;
+    }
+
+    public void setEmployeeName(String employeeName) {
+        this.employeeName = employeeName;
+    }
+
+    public String getDeadLine() {
+        return deadLine;
+    }
+
+    public void setDeadLine(String deadLine) {
+        this.deadLine = deadLine;
+    }
+
+    public boolean isDone() {
+        return isDone;
+    }
+
+    public void setDone(boolean done) {
+        isDone = done;
+    }
 }

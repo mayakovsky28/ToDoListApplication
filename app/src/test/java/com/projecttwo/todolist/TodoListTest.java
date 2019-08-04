@@ -8,7 +8,12 @@ public class TodoListTest {
     @Test
     public void isDone_isFalseOnInstantiation_false() {
         Task myTask = new Task("Mow the lawn");
-        assertEquals(false, myTask.isDone());
+        assertFalse(myTask.isDone());
+    }
+
+    @Test
+    public void taskName_isInitialised() {
+        Task myTask = new Task("Mow the lawn");
+        assertEquals("Mow the lawn", myTask.getTaskName());
     }
 }
-
