@@ -11,10 +11,14 @@ class TodoList {
         this.tasks = new ArrayList<>();
     }
 
+    /**
+     * This method is used to show all of the tasks in the to do list.
+     * @return None
+     */
     void display() {
         System.out.println("Here is our To Do List for " + topic);
-        for (int i = 0; i < this.tasks.size(); i++) {
-            System.out.println("Task " + (i + 1) + " is " + this.tasks.get(i) + ("."));
+        for (int i = 0; i < tasks.size(); i++) {
+            System.out.println("Task " + (i + 1) + " is " + tasks.get(i).getTaskName() + ("."));
         }
     }
 
@@ -26,7 +30,14 @@ class TodoList {
         }
     }*/
 
-    void assignDeadLine(String taskName, String deadLine){}
+    void assignDeadLine(String taskName, String deadLine){
+        for (int i = 0; i < tasks.size(); i++) {
+            if (tasks.get(i).getTaskName().equals(taskName)) {
+                tasks.get(i).setDeadLine(deadLine);
+                return;
+            }
+        }
+    }
 
     void createTask(String taskName, String employeeName, String deadLine) {
         Task taskOne = new Task(taskName);
