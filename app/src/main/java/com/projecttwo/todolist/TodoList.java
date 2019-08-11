@@ -13,24 +13,26 @@ class TodoList {
 
     /**
      * This method is used to show all of the tasks in the to do list.
+     *
      * @return None
      */
     void display() {
-        System.out.println("Here is our To Do List for " + topic);
+        System.out.println("Here is our To Do List for " + topic + ".");
         for (int i = 0; i < tasks.size(); i++) {
-            System.out.println("Task " + (i + 1) + " is " + tasks.get(i).getTaskName() + ("."));
+            System.out.println("Task " + (i + 1) + " is " + tasks.get(i).getTaskName() + " and is due to be completed by " + tasks.get(i).getEmployeeName() + " on " + tasks.get(i).getDeadLine() + ".");
         }
     }
 
-    /*void assignTask(String taskName, String employeeName) {
-        for (int i = 0; i < this.tasks.size(); i++) {
-    if (taskName == Task(i).taskName) {
-        Task(i).employeeName = employeeName;
-    }
+    void assignTask(String taskName, String employeeName) {
+        for (int i = 0; i < tasks.size(); i++) {
+            if (tasks.get(i).getTaskName().equals(taskName)) {
+                tasks.get(i).setEmployeeName(employeeName);
+                return;
+            }
         }
-    }*/
+    }
 
-    void assignDeadLine(String taskName, String deadLine){
+    void assignDeadLine(String taskName, String deadLine) {
         for (int i = 0; i < tasks.size(); i++) {
             if (tasks.get(i).getTaskName().equals(taskName)) {
                 tasks.get(i).setDeadLine(deadLine);
@@ -46,25 +48,21 @@ class TodoList {
         tasks.add(taskOne);
     }
 
-    void markAsDone(String taskName){
-    }
-    
     void removeTask(String taskName) {
         for (int i = 0; i < tasks.size(); i++) {
             if (tasks.get(i).getTaskName().equals(taskName)) {
-                this.tasks.remove(i);
+                tasks.remove(i);
                 return;
             }
         }
     }
 
-
-//    void renameTask(String taskName, String newTaskName) {
-//        try {
-//            this.tasks.set(taskName, newTask);
-//        } catch (IndexOutOfBoundsException e) {
-//            System.out.println("Could not rename task, no such task.");
-//        }
-//    }
-
+    void renameTask(String taskName, String newTaskName) {
+        for (int i = 0; i < tasks.size(); i++) {
+            if (tasks.get(i).getTaskName().equals(taskName)) {
+                tasks.get(i).setTaskName(newTaskName);
+                return;
+            }
+        }
+    }
 }
