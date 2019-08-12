@@ -1,37 +1,26 @@
 package com.projecttwo.todolist;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         TodoList myTodoList = new TodoList("emptyTopic");
-
         Scanner scanMenuOption = new Scanner(System.in);
         String menuOption = "";
         while (menuOption.equals("")) {
             System.out.println("Please choose option 1 to create a new to do list.");
+            System.out.println("Please choose option 2 to close the programme.");
             //if (scanMenuOption.hasNext()) {
             menuOption = scanMenuOption.next();
             // }
             switch (menuOption) {
                 case "1":
-                    System.out.print("Please choose a topic for your To Do List: ");
-                    if (scanMenuOption.hasNextLine()) {
-                        String topic = scanMenuOption.nextLine();
-                        while (topic.equals("")) {
-                            topic = scanMenuOption.nextLine();
-                        }
-                       // if (topicsList.contains(topic)) {
-                       //     System.out.println("There is already a to do list with this topic.")
-                        myTodoList = new TodoList(topic);
-                        System.out.println("Your To Do List " + topic + " was created.");
-                        System.out.println("Please choose option 1 to add a new task.");
-                        System.out.println("Please choose option 2 to edit or remove a task.");
-                        //if (scanMenuOption.hasNext()) {
-                        menuOption = scanMenuOption.next();
-                        // }
-                    }
+                    createToDoList();
+                    System.out.println("Please choose option 1 to add a new task.");
+                    System.out.println("Please choose option 2 to edit or remove a task.");
+                    //if (scanMenuOption.hasNext()) {
+                    menuOption = scanMenuOption.next();
+                    // }
                     switch (menuOption) {
                         case "1":
                             createTaskForm(myTodoList);
@@ -39,7 +28,7 @@ public class Main {
                         case "2":
                             System.out.println("Please choose option 1 to edit a task.");
                             System.out.println("Please choose option 2 to remove a task.");
-                            //if (scanMenuOption.hasNextInt()) {
+                            //if (scanMenuOption.hasNext()) {
                             menuOption = scanMenuOption.next();
                             //}
                             switch (menuOption) {
@@ -83,10 +72,12 @@ public class Main {
                     }
                     break;
                 case "2":
-                    break;
+                    System.out.println("Good bye!");
+                    return;
             }
         }
 
+/*
         TodoList myTodoList2 = new TodoList("My morning routine");
         myTodoList2.createTask("Wake up", "Lewis", "01/08/2019");
         myTodoList2.createTask("Knock knock", "Neo", "06/08/2019");
@@ -97,18 +88,34 @@ public class Main {
         myTodoList2.removeTask("Wake up");
         myTodoList2.renameTask("Knock knock", "Bye bye");
         myTodoList2.display();
+*/
 
     }
 
     static void createTaskForm(TodoList myTodoList) {
         Scanner scanForTask = new Scanner(System.in);
         System.out.print("Provide task name:\n");
-        String taskName = scanForTask.next();
+        String taskName = scanForTask.nextLine();
         System.out.print("Provide employee name:\n");
-        String employeeName = scanForTask.next();
+        String employeeName = scanForTask.nextLine();
         System.out.print("Provide dead line:\n");
-        String deadLine = scanForTask.next();
+        String deadLine = scanForTask.nextLine();
         myTodoList.createTask(taskName, employeeName, deadLine);
         myTodoList.display();
+    }
+
+    public static void createToDoList() {
+        Scanner scanMenuOption = new Scanner(System.in);
+        System.out.print("Please choose a topic for your To Do List: ");
+        if (scanMenuOption.hasNextLine()) {
+            String topic = scanMenuOption.nextLine();
+            while (topic.equals("")) {
+                topic = scanMenuOption.nextLine();
+            }
+            // if (topicsList.contains(topic)) {
+            //     System.out.println("There is already a to do list with this topic.")
+            TodoList.topic = topic;
+            System.out.println("Your To Do List " + topic + " was created.");
+        }
     }
 }

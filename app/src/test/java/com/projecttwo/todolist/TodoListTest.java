@@ -17,6 +17,7 @@ public class TodoListTest {
         assertEquals("Mow the lawn", myTask.getTaskName());
     }
 
+    @Test
     public void runProgramme() {
         TodoList myTodoList = new TodoList("My morning routine");
         myTodoList.createTask("Wake up", "Lewis", "01/08/2019");

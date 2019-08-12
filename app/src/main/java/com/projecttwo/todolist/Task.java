@@ -21,7 +21,6 @@ class Task {
     public String getEmployeeName() {
         return employeeName;
     }
-
     public void setEmployeeName(String employeeName) {
         this.employeeName = employeeName;
     }
@@ -29,7 +28,6 @@ class Task {
     public String getDeadLine() {
         return deadLine;
     }
-
     public void setDeadLine(String deadLine) {
         this.deadLine = deadLine;
     }
@@ -37,7 +35,6 @@ class Task {
     public boolean isDone() {
         return isDone;
     }
-
     public void setDone(boolean done) {
         isDone = done;
     }

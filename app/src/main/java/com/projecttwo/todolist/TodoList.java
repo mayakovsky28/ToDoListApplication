@@ -3,7 +3,7 @@ package com.projecttwo.todolist;
 import java.util.ArrayList;
 
 class TodoList {
-    private String topic;
+    static String topic;
     private ArrayList<Task> tasks;
 
     TodoList(String topic) {
