@@ -16,66 +16,68 @@ public class Main {
             switch (menuOption) {
                 case "1":
                     createToDoList();
-                        do {
-                            System.out.println("Please choose option 1 to add a new task.");
-                            System.out.println("Please choose option 2 to edit or remove a task.");
-                            System.out.println("Please choose option 3 to close the programme.");
-                            //if (scanMenuOption.hasNext()) {
-                            menuOption = scanMenuOption.next();
-                            // }
-                            switch (menuOption) {
-                                case "1":
-                                    createTaskForm(myTodoList);
-                                    break;
-                                case "2":
-                                    System.out.println("Please choose option 1 to edit a task.");
-                                    System.out.println("Please choose option 2 to remove a task.");
-                                    //if (scanMenuOption.hasNext()) {
-                                    menuOption = scanMenuOption.next();
-                                    //}
-                                    switch (menuOption) {
-                                        case "1":
-                                            System.out.print("Please write the name of the task you wish to edit:");
-                                            String taskToBeEdited = scanMenuOption.nextLine();
-                                            System.out.println("Task: " + taskToBeEdited + " is available for editing.");
-                                            System.out.println("Please choose option 1 to change the name of the task.");
-                                            System.out.println("Please choose option 2 to change the assigned employee.");
-                                            System.out.println("Please choose option 3 to change the dead line.");
-                                            if (scanMenuOption.hasNext()) {
-                                                menuOption = scanMenuOption.next();
-                                            }
-                                            switch (menuOption) {
-                                                case "1":
-                                                    System.out.print("Please write the new task name for " + taskToBeEdited + ":");
-                                                    String newTaskName = scanMenuOption.nextLine();
-                                                    myTodoList.renameTask(taskToBeEdited, newTaskName);
-                                                    System.out.println(taskToBeEdited + " has been renamed " + newTaskName + ".");
-                                                    break;
-                                                case "2":
-                                                    System.out.print("Please write the new assigned employee for " + taskToBeEdited + ":");
-                                                    String newEmployee = scanMenuOption.nextLine();
-                                                    myTodoList.assignTask(taskToBeEdited, newEmployee);
-                                                    System.out.println(taskToBeEdited + " has now been assigned to " + newEmployee + ".");
-                                                    break;
-                                                case "3":
-                                                    System.out.print("Please write the new dead line for " + taskToBeEdited + ":");
-                                                    String newDeadLine = scanMenuOption.nextLine();
-                                                    myTodoList.assignDeadLine(taskToBeEdited, newDeadLine);
-                                                    System.out.println(taskToBeEdited + " has a new dead line of " + newDeadLine + ".");
-                                                    break;
-                                            }
-                                        case "2":
-                                            System.out.print("Please write the name of the task you wish to remove:");
-                                            String taskToBeDeleted = scanMenuOption.nextLine();
-                                            myTodoList.removeTask(taskToBeDeleted);
-                                            System.out.println(taskToBeDeleted + " is no more.");
-                                            break;
-                                    }
-                            }
-                        } while (!"3".equals(menuOption));
-                case "2":
-                    System.out.println("Good bye!");
-                    return;
+                    do {
+                        System.out.println("Please choose option 1 to add a new task.");
+                        System.out.println("Please choose option 2 to edit or remove a task.");
+                        System.out.println("Please choose option 3 to close the programme.");
+                        //if (scanMenuOption.hasNext()) {
+                        menuOption = scanMenuOption.next();
+                        // }
+                        switch (menuOption) {
+                            case "1":
+                                createTaskForm(myTodoList);
+                                break;
+                            case "2":
+                                System.out.println("Please choose option 1 to edit a task.");
+                                System.out.println("Please choose option 2 to remove a task.");
+                                //if (scanMenuOption.hasNext()) {
+                                menuOption = scanMenuOption.next();
+                                //}
+                                switch (menuOption) {
+                                    case "1":
+                                        Scanner scanForTaskToBeEdited = new Scanner(System.in);
+                                        System.out.print("Please write the name of the task you wish to edit:\n");
+                                        String taskToBeEdited = scanForTaskToBeEdited.next();
+                                        System.out.println("Task: " + taskToBeEdited + " is available for editing.");
+                                        System.out.println("Please choose option 1 to change the name of the task.");
+                                        System.out.println("Please choose option 2 to change the assigned employee.");
+                                        System.out.println("Please choose option 3 to change the dead line.");
+                                        if (scanMenuOption.hasNext()) {
+                                            menuOption = scanMenuOption.next();
+                                        }
+                                        switch (menuOption) {
+                                            case "1":
+                                                System.out.print("Please write the new task name for " + taskToBeEdited + ":");
+                                                String newTaskName = scanMenuOption.next();
+                                                myTodoList.renameTask(taskToBeEdited, newTaskName);
+                                                System.out.println(taskToBeEdited + " has been renamed " + newTaskName + ".");
+                                                break;
+                                            case "2":
+                                                System.out.print("Please write the new assigned employee for " + taskToBeEdited + ":");
+                                                String newEmployee = scanMenuOption.next();
+                                                myTodoList.assignTask(taskToBeEdited, newEmployee);
+                                                System.out.println(taskToBeEdited + " has now been assigned to " + newEmployee + ".");
+                                                break;
+                                            case "3":
+                                                System.out.print("Please write the new dead line for " + taskToBeEdited + ":");
+                                                String newDeadLine = scanMenuOption.next();
+                                                myTodoList.assignDeadLine(taskToBeEdited, newDeadLine);
+                                                System.out.println(taskToBeEdited + " has a new dead line of " + newDeadLine + ".");
+                                                break;
+                                        }
+                                        break;
+                                    case "2":
+                                        System.out.print("Please write the name of the task you wish to remove:");
+                                        String taskToBeDeleted = scanMenuOption.next();
+                                        myTodoList.removeTask(taskToBeDeleted);
+                                        System.out.println(taskToBeDeleted + " is no more.");
+                                        break;
+                                }
+                        }
+                    } while (!menuOption.equals("3")) ;
+                        case "2":
+                            System.out.println("Good bye!");
+                            return;
             }
         }
 
