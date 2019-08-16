@@ -29,6 +29,13 @@ public class TodoListTest {
         myTodoList.removeTask("Wake up");
         myTodoList.renameTask("Knock knock", "Bye bye");
         myTodoList.display();
-
-        }
     }
+
+    @Test
+    public void employeeName_isInitialised() {
+    TodoList myTodoList= new TodoList("Household chores");
+    Task myTask = new Task ("Mow the lawn");
+    myTodoList.assignTask("Mow the lawn", "Lewis");
+    assertEquals("Lewis", myTask.getEmployeeName());
+    }
+}
