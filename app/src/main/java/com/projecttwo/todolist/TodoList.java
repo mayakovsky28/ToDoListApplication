@@ -13,8 +13,6 @@ class TodoList {
 
     /**
      * This method is used to show all of the tasks in the to do list.
-     *
-     * @return None
      */
     void display() {
         System.out.println("Here is our To Do List for " + topic + ".");

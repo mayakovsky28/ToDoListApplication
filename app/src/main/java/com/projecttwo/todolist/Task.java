@@ -11,31 +11,31 @@ class Task {
         this.isDone = false;
     }
 
-    public String getTaskName() {
+    String getTaskName() {
         return this.taskName;
     }
-    public void setTaskName(String newTaskName) {
+    void setTaskName(String newTaskName) {
         this.taskName = newTaskName;
     }
 
-    public String getEmployeeName() {
+    String getEmployeeName() {
         return employeeName;
     }
-    public void setEmployeeName(String employeeName) {
+    void setEmployeeName(String employeeName) {
         this.employeeName = employeeName;
     }
 
-    public String getDeadLine() {
+    String getDeadLine() {
         return deadLine;
     }
-    public void setDeadLine(String deadLine) {
+    void setDeadLine(String deadLine) {
         this.deadLine = deadLine;
     }
 
-    public boolean isDone() {
+    boolean isDone() {
         return isDone;
     }
-    public void setDone(boolean done) {
+    void setDone(boolean done) {
         isDone = done;
     }
 }
