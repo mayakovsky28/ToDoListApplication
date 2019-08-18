@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 class Menu {
+    ArrayList taskList = new ArrayList<String>();
+    TodoList myTodoList = new TodoList("emptyTopic");
+
     void generateUserMenu() {
-        TodoList myTodoList = new TodoList("emptyTopic");
         Scanner scanMenuOption = new Scanner(System.in);
         String menuOption = "";
         while (!menuOption.equals("3")) {
@@ -87,17 +89,19 @@ class Menu {
     private void createTaskForm(TodoList myTodoList) {
         Scanner scanForTask = new Scanner(System.in);
         System.out.print("Provide task name:\n");
-//        if (myTodoList.contains(scanForTask.nextLine())) {
-//            System.out.println("This task already exists.");
-//            return;
-//        }
         String taskName = scanForTask.nextLine();
-        System.out.print("Provide employee name:\n");
-        String employeeName = scanForTask.nextLine();
-        System.out.print("Provide dead line:\n");
-        String deadLine = scanForTask.nextLine();
-        myTodoList.createTask(taskName, employeeName, deadLine);
-        myTodoList.display();
+        if (taskList.contains(taskName)) {
+            System.out.println("The task " + taskName + " already exists.");
+            createTaskForm(myTodoList);
+        } else {
+            taskList.add(taskName);
+            System.out.print("Provide employee name:\n");
+            String employeeName = scanForTask.nextLine();
+            System.out.print("Provide dead line:\n");
+            String deadLine = scanForTask.nextLine();
+            myTodoList.createTask(taskName, employeeName, deadLine);
+            myTodoList.display();
+        }
     }
 
     private void createToDoList() {
@@ -106,7 +110,7 @@ class Menu {
         if (scanForTopic.hasNextLine()) {
             String topic = scanForTopic.nextLine();
             while (topic.equals("")) {
-                 topic = scanForTopic.nextLine();
+                topic = scanForTopic.nextLine();
             }
             ArrayList<String> topicsList = new ArrayList<>();
             for (int i = 0; i < topicsList.size(); i++) {
