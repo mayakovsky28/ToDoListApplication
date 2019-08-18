@@ -1,16 +1,16 @@
 package com.projecttwo.todolist;
 
-import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 class Menu {
-    void generateUserMenu(){
+    void generateUserMenu() {
         TodoList myTodoList = new TodoList("emptyTopic");
         Scanner scanMenuOption = new Scanner(System.in);
         String menuOption = "";
         while (!menuOption.equals("3")) {
             System.out.println("Please choose option 1 to create a new to do list.");
-            System.out.println("Please choose option 2 to close the programme.");
+            System.out.println("Please choose option 4 to close the programme.");
             //if (scanMenuOption.hasNext()) {
             menuOption = scanMenuOption.next();
             // }
@@ -21,7 +21,7 @@ class Menu {
                         menuOption = "";
                         System.out.println("Please choose option 1 to add a new task.");
                         System.out.println("Please choose option 2 to edit or remove a task.");
-                        System.out.println("Please choose option 3 to close the programme.");
+                        System.out.println("Please choose option 4 to close the programme.");
                         if (scanMenuOption.hasNext()) {
                             menuOption = scanMenuOption.next();
                         }
@@ -50,19 +50,19 @@ class Menu {
                                         switch (menuOption) {
                                             case "1":
                                                 System.out.print("Please write the new task name for " + taskToBeEdited + ": \n");
-                                                String newTaskName = scanMenuOption.next();
+                                                String newTaskName = scanForTaskToBeEdited.nextLine();
                                                 myTodoList.renameTask(taskToBeEdited, newTaskName);
                                                 System.out.println("Task " + taskToBeEdited + " has been renamed " + newTaskName + ".");
                                                 break;
                                             case "2":
                                                 System.out.print("Please write the new assigned employee for " + taskToBeEdited + ": \n");
-                                                String newEmployee = scanMenuOption.next();
+                                                String newEmployee = scanForTaskToBeEdited.nextLine();
                                                 myTodoList.assignTask(taskToBeEdited, newEmployee);
                                                 System.out.println(taskToBeEdited + " has now been assigned to " + newEmployee + ".");
                                                 break;
                                             case "3":
                                                 System.out.print("Please write the new dead line for " + taskToBeEdited + ": \n");
-                                                String newDeadLine = scanMenuOption.next();
+                                                String newDeadLine = scanForTaskToBeEdited.nextLine();
                                                 myTodoList.assignDeadLine(taskToBeEdited, newDeadLine);
                                                 System.out.println(taskToBeEdited + " has a new dead line of " + newDeadLine + ".");
                                                 break;
@@ -76,16 +76,21 @@ class Menu {
                                         break;
                                 }
                         }
-                    } while (!menuOption.equals("3"));
+                    } while (!menuOption.equals("4"));
                 case "2":
                     System.out.println("Good bye!");
                     return;
             }
         }
     }
-    private static void createTaskForm(TodoList myTodoList) {
+
+    private void createTaskForm(TodoList myTodoList) {
         Scanner scanForTask = new Scanner(System.in);
         System.out.print("Provide task name:\n");
+//        if (myTodoList.contains(scanForTask.nextLine())) {
+//            System.out.println("This task already exists.");
+//            return;
+//        }
         String taskName = scanForTask.nextLine();
         System.out.print("Provide employee name:\n");
         String employeeName = scanForTask.nextLine();
@@ -94,16 +99,17 @@ class Menu {
         myTodoList.createTask(taskName, employeeName, deadLine);
         myTodoList.display();
     }
+
     private void createToDoList() {
         Scanner scanForTopic = new Scanner(System.in);
         System.out.print("Please choose a topic for your To Do List: ");
         if (scanForTopic.hasNextLine()) {
             String topic = scanForTopic.nextLine();
             while (topic.equals("")) {
-                topic = scanForTopic.nextLine();
+                 topic = scanForTopic.nextLine();
             }
             ArrayList<String> topicsList = new ArrayList<>();
-            for (int i = 0; i<topicsList.size(); i++) {
+            for (int i = 0; i < topicsList.size(); i++) {
                 if (topicsList.get(i).equals(topic)) {
                     System.out.println("There is already a to do list with this topic.");
                     return;

@@ -1,12 +1,9 @@
 package com.projecttwo.todolist;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.*;
 
-class TodoListTest {
-    static void testAll() {
-
-        @Test
+public class TodoListTest {
+    @Test
         public void isDone_isFalseOnInstantiation_false () {
             Task myTask = new Task("Mow the lawn");
             Assert.assertFalse(myTask.isDone());
@@ -56,5 +53,4 @@ class TodoListTest {
         @Test
         public void renameTask_changesTaskName () {
         }
-    }
 }
